@@ -1,13 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author NARENDER KESWANI
- */
 import java.io.*;
 import javax.swing.*;
 import java.awt.*;
@@ -16,14 +7,14 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class TextNotepad extends KeyAdapter implements ActionListener, KeyListener {
 
-    //Default Font Size for text
+    
     int fsize = 17;
 
     private JTextArea area;
     private JScrollPane scpane;
     String text = "";
 
-    //Creating Frame and setting up the title
+    
     JFrame f = new JFrame("DataFlair's Notepad");
 
     JTextField title;
@@ -85,7 +76,7 @@ public class TextNotepad extends KeyAdapter implements ActionListener, KeyListen
                     System.out.print(e);
                 }
             }
-        } //if save option is choosen
+        } 
         else if (ae.getActionCommand().equals("Save")) {
             final JFileChooser SaveAs = new JFileChooser();
             SaveAs.setApproveButtonText("Save");
@@ -102,14 +93,14 @@ public class TextNotepad extends KeyAdapter implements ActionListener, KeyListen
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } //if print option is choosen
+        } 
         else if (ae.getActionCommand().equals("Print")) {
             try {
                 //printer dialog will open
                 area.print();
             } catch (Exception e) {
             }
-        } //if exit option is choosen
+        }
         else if (ae.getActionCommand().equals("Exit")) {
             //Destroying/Closing the frame/window
             f.dispose();
@@ -117,32 +108,32 @@ public class TextNotepad extends KeyAdapter implements ActionListener, KeyListen
         else if (ae.getActionCommand().equals("Copy")) {
             //Getting Selected Selected Text
             text = area.getSelectedText();
-        } //if paste option is choosen
+        }
         else if (ae.getActionCommand().equals("Paste")) {
             area.insert(text, area.getCaretPosition());
-        } //if cut option is choosen
+        } 
         else if (ae.getActionCommand().equals("Cut")) {
             text = area.getSelectedText();
             area.replaceRange("", area.getSelectionStart(), area.getSelectionEnd());
-        } //if select all option is choosen
+        } 
         else if (ae.getActionCommand().equals("Select All")) {
-            //Selecting all text
+            
             area.selectAll();
-        } //if font family change option is choosen
+        }
         else if (ae.getActionCommand().equals("Font Family")) {
             //Setting up Font Family
             JOptionPane.showConfirmDialog(null, fontFamilyList, "Choose Font Family", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
             fontFamily = String.valueOf(fontFamilyList.getSelectedValue());
             newFont = new Font(fontFamily, fstyle, fsize);
             area.setFont(newFont);
-        } //if font style change option is choosen
+        } 
         else if (ae.getActionCommand().equals("Font Style")) {
             //Setting up Font Style
             JOptionPane.showConfirmDialog(null, fontStyleList, "Choose Font Style", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
             fstyle = stylevalue[fontStyleList.getSelectedIndex()];
             newFont = new Font(fontFamily, fstyle, fsize);
             area.setFont(newFont);
-        } //if font size change option is choosen
+        } 
         else if (ae.getActionCommand().equals("Font Size")) {
             //Setting up Font Size
             JOptionPane.showConfirmDialog(null, fontSizeList, "Choose Font Size", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
@@ -329,7 +320,7 @@ public class TextNotepad extends KeyAdapter implements ActionListener, KeyListen
     }
 
     public static void main(String ar[]) {
-        // TODO code application logic here
+       
         TextNotepad tnp = new TextNotepad();
     }
 }
