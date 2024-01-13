@@ -15,7 +15,7 @@ public class TextNotepad extends KeyAdapter implements ActionListener, KeyListen
     String text = "";
 
     
-    JFrame f = new JFrame("DataFlair's Notepad");
+    JFrame f = new JFrame("Notepad");
 
     JTextField title;
     Font newFont;
